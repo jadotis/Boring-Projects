@@ -165,7 +165,6 @@
         }
     }
     function divide(){
-        debugger;
         if(equation.slice(-1) == '/'){
             return;
         }
@@ -177,12 +176,10 @@
         }
     }
     function times(){
-        debugger;
         if(equation.slice(-1) == '*'){
             return;
         }
         else{
-            debugger;
             equation += document.getElementById("calcHeader").value + '*';
             document.getElementById("calcHeader").value = '';
             currentValue = '';
@@ -190,7 +187,6 @@
         }
     }
     function add(){
-        debugger;
         if(equation.slice(-1) == '+'){
             return;
         }
@@ -202,7 +198,6 @@
         }
     }
     function minus() {
-        debugger;
         if(equation.slice(-1) == '-'){
             return;
         }
@@ -214,7 +209,6 @@
         }
     }
     function decimal() {
-        debugger;
         currentValue += '.';
         document.getElementById("calcHeader").value = Number(currentValue).toString();
         return;
@@ -237,10 +231,6 @@
         equation = '';
         return;
     }
-
-
-
 </script>
-
 </body>
 </html>
