@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+    <meta author = "james Otis"/>
+    <style>
+        html {
+            background: #272c2f url(https://goo.gl/KMUPT);
+
+            color: #333;
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 10px;
+            -webkit-font-smoothing: antialiased;
+            font-style, font-weight, letter-spacing, line-height, word-spacing: normal;
+        }
+        .wrapper {
+            margin: 50px auto;
+            width: 20vw;
+            height: 50vh;
+            background: #eee;
+            box-shadow: 0 0 25px 0 #000;
+        }
+        input {
+            padding: 28px;
+            width: 85%;
+            height: 60px;
+            border: 0;
+            border-bottom: 8px solid #eee;
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 0.3rem;
+            text-align: right;
+        }
+        ul li {
+            float: left;
+            margin: 0 1px 1px 0;
+            width: 79px;
+            height: 60px;
+            background: #fff;
+            display: inline-block;
+
+            font-size: 1.3rem;
+            line-height: 6.2rem;
+            text-align: center;
+
+            -webkit-transition: all 0.5s;
+        }
+        ul li:hover {
+            background: #eee;
+            -webkit-transition: all 0.1s;
+        }
+        ul li:nth-child(4n+4), ul li:last-child {
+            margin: 0 0 1px 0;
+            width: 80px;
+        }
+        .long {
+            width: 159px;
+        }
+    </style>
+</head>
+<body>
+<h1 style=" padding-top: 40px; color: darkcyan; text-align: center; margin: auto;">I'm a FullStack Dev</h1>
+<div class="wrapper">
+    <input id="calcHeader" type="number" placeholder="Waiting....">
+    <ul>
+        <li  onclick="doClear()">C</li>
+        <li  onclick="square()">x^2</li>
+        <li  onclick="mod()">%</li>
+        <li  onclick="divide()">/</li>
+        <li onclick="seven()">7</li>
+        <li  onclick="eight()">8</li>
+        <li  onclick="nine()">9</li>
+        <li  onclick="times()">&times;</li>
+        <li  onclick="four()">4</li>
+        <li  onclick="five()">5</li>
+        <li  onclick="six()">6</li>
+        <li  onclick="minus()">-</li>
+        <li  onclick="one()">1</li>
+        <li  onclick="two()">2</li>
+        <li  onclick="three()">3</li>
+        <li  onclick="add()">+</li>
+        <li class="long"  onclick="zero()">0</li>
+        <li  onclick="decimal()">.</li>
+        <li  onclick="printSolution()">=</li>
+    </ul>
+</div>
+<p id="Output" style="font-size: large; text-align: center; margin: auto; color: red"></p>
+
+<script type="text/javascript">
+    var currentValue = '';
+    var runningValue  = 0;
+    var equation = '';
+
+    function one(){
+        currentValue += '1';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function two(){
+        currentValue += '2';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function three(){
+        currentValue += '3';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function four(){
+        currentValue += '4';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function five(){
+        currentValue += '5';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function six(){
+        currentValue += '6';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function seven(){
+        currentValue += '7';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function eight(){
+        currentValue += '8';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function nine(){
+        currentValue += '9';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function zero(){
+        currentValue += '0';
+        document.getElementById("calcHeader").value = currentValue;
+        return;
+    }
+    function doClear(){
+        runningValue = 0;
+        currentValue = '';
+        document.getElementById("calcHeader").value = '';
+        return;
+    }
+    function square(){
+        runningValue = Number(currentValue)* Number(currentValue);
+        currentValue = runningValue.toString();
+        document.getElementById("calcHeader").value = runningValue;
+        return
+    }
+    function mod(){
+        if(equation.slice(-1) == '%'){
+            return;
+        }
+        else{
+            equation += document.getElementById("calcHeader").value + '%';
+            document.getElementById("calcHeader").value = '';
+            currentValue = '';
+            return;
+        }
+    }
+    function divide(){
+        debugger;
+        if(equation.slice(-1) == '/'){
+            return;
+        }
+        else{
+            equation += document.getElementById("calcHeader").value + '/';
+            document.getElementById("calcHeader").value = '';
+            currentValue = '';
+            return;
+        }
+    }
+    function times(){
+        debugger;
+        if(equation.slice(-1) == '*'){
+            return;
+        }
+        else{
+            debugger;
+            equation += document.getElementById("calcHeader").value + '*';
+            document.getElementById("calcHeader").value = '';
+            currentValue = '';
+            return;
+        }
+    }
+    function add(){
+        debugger;
+        if(equation.slice(-1) == '+'){
+            return;
+        }
+        else{
+            equation += document.getElementById("calcHeader").value + '+';
+            document.getElementById("calcHeader").value = '';
+            currentValue = '';
+            return;
+        }
+    }
+    function minus() {
+        debugger;
+        if(equation.slice(-1) == '-'){
+            return;
+        }
+        else{
+            equation += document.getElementById("calcHeader").value + '-';
+            document.getElementById("calcHeader").value = '';
+            currentValue = '';
+            return;
+        }
+    }
+    function decimal() {
+        debugger;
+        currentValue += '.';
+        document.getElementById("calcHeader").value = Number(currentValue).toString();
+        return;
+    }
+    function printSolution(){
+        if(document.getElementById("calcHeader").value == '' || document.getElementById("calcHeader").value == undefined){
+            document.getElementById("Output").innerHTML = "Enter a final Value!";
+            return;
+        }
+        document.getElementById("Output").innerHTML = "";
+
+        var finalVal = eval(equation + document.getElementById("calcHeader").value);
+        document.getElementById("calcHeader").value = finalVal;
+        if(finalVal < 0){
+            document.getElementById("calcHeader").style = "color: red";
+        }
+        else{
+            document.getElementById("calcHeader").style = "color: black";
+        }
+        equation = '';
+        return;
+    }
+
+
+
+</script>
+
+</body>
+</html>
